@@ -82,6 +82,10 @@ alias nas='ssh joe@10.0.0.250'
 alias recent_history="history | dmenu -l 20 | sed 's/^\s*[0-9]\+\s*//'"
 alias tmux_colors='for i in {0..255}; do printf "\x1b[38;5;${i}mcolor%-5i\x1b[0m" $i ; if ! (( ($i + 1 ) % 8 )); then echo ; fi ; done'
 alias Whovian='cd /home/joe/Dev/Python/Projects/Who_Collection_Management/ && python __main__.py'
+# Color Man Pages
+export PAGER="most"
+### OR ###
+export PAGER="/usr/bin/most -s"
 
 # Upgrade 
 alias pip_up="sudo pip3.8 list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 sudo pip3.8 install -U"
