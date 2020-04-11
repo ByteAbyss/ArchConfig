@@ -1,0 +1,93 @@
+[options]
+#https://github.com/thestinger/termite/blob/master/config
+allow_bold = true
+audible_bell = false
+browser = xdg-open
+clickable_url = true
+cursor_blink = system
+cursor_shape = block
+dynamic_title = true
+filter_unmatched_urls = true
+font = FiraCode Nerd Font Mono 12
+#font = Hack Bold 10
+geometry = 900x650
+highlight = #2f2f2f
+icon_name = terminal
+modify_other_keys = false
+mouse_autohide = false
+scroll_on_output = false
+scroll_on_keystroke = true
+scrollback_lines = 15000
+size_hints = false
+search_wrap = true
+urgent_on_bell = true
+
+[hints]
+#font = Monospace 12
+#foreground = #dcdccc
+#background = #3f3f3f
+#active_foreground = #e68080
+#active_background = #3f3f3f
+#padding = 2
+#border = #3f3f3f
+#border_width = 10
+#roundness = 2.0
+
+############################################################
+#### You can change the color coding to your liking
+#### There is a folder themes in ~/config/termite/themes
+#### Copy/paste the colors from one of the 79+ templates to this one
+#### A backup of the original config termite is present
+############################################################
+#### Use websites to make the terminal your own
+#### https://terminal.sexy
+#### https://critical.ch/xterm/
+############################################################
+
+[colors]
+# special
+foreground      = #ffffff
+foreground_bold = #ffffff
+cursor          = #ffffff
+background = rgba(0,0,0,.70)
+
+# black
+color0  = #1b1d1e
+color8  = #505354
+
+# red
+color1  = #f92672
+color9  = #ff5995
+
+# green
+color2  = #82b414
+color10 = #b6e354
+
+# yellow
+color3  = #fd971f
+color11 = #feed6c
+
+# blue
+color4  = #4e82aa
+color12 = #0c73c2
+
+# magenta
+color5  = #8c54fe
+color13 = #9e6ffe
+
+# cyan
+color6  = #465457
+color14 = #899ca1
+
+# white
+color7  = #ccccc6
+color15 = #f8f8f2
+
+##################################
+# Test -- Overite Original Theme #
+##################################
+
+
+
+
+

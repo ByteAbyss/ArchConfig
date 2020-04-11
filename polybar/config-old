@@ -1,0 +1,288 @@
+[bar/oryx_bar]
+enable-ipc = true
+#top = True
+bottom = True
+monitor = DP-3
+monitor-fallback = DP-0	
+width = 100%
+height = 50
+dpi = 192
+background = #14144D
+# Current : Purple/ Blue : Dark
+#0E0E66   Purple/ Blue : Med Bright 
+#0E247A Gray/Purple : Bright
+#123355 Blue/Gray : Med 
+#322E2E Blue/Gray : Light
+#322E2E Dark Gray
+#404040
+#000047
+foreground = #FFFF7F 
+
+line-size = 1
+padding-left = 2
+padding-right = 10
+module-margin-left = 3
+module-margin-right = 3
+radius = 30.0
+border-size=1
+border-color= #FFFF7F
+#26539b
+#404040
+#FFFFFF
+
+separator = |
+
+font-0 = NotoSans-Regular:size=10;0
+font-1 = Material\ Icons:size=16;2
+font-2 = xos4\ Terminus:size=11;0
+font-3 = Siji:pixelsize=11;1
+font-4 = FontAwesome:size=12;0
+
+; Identify which font to use
+label-active-font = 4
+modules-left = i3 
+modules-center = date
+modules-right = cpu memory temperature volume wireless-network consumation  battery         
+
+wm-restack = i3
+override-redirect= false
+tray-position = right 
+tray-scale = 1.0
+tray-transparent = false
+tray-background = ${self.background}
+tray-maxsize = 30
+tray-offset-x = 2
+
+scroll-up = i3wm-wsnext
+scroll-down = i3wm-wsprev
+
+overline-size = 10
+overline-color = ${self.background}
+underline-size = 2
+underline-color = ${self.background}
+
+
+[module/consumation]
+type = custom/script
+exec = /home/joevalcancick/bin/i3weather.sh
+interval = 2
+
+[module/battery]
+type = internal/battery
+full-at = 98
+
+format-charging = <animation-charging> <label-charging>
+format-discharging = <ramp-capacity> <label-discharging>
+format-full = <ramp-capacity> <label-full>
+
+label-charging = %percentage%% %time%h
+label-discharging = %percentage%% %time%h 
+ramp-capacity-0 = 
+ramp-capacity-0-foreground = #f53c3c
+ramp-capacity-1 = 
+ramp-capacity-1-foreground = #ffa900
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+
+bar-capacity-width = 10
+bar-capacity-format = %{+u}%{+o}%fill%%empty%%{-u}%{-o}
+bar-capacity-fill = █
+bar-capacity-fill-foreground = #ddffffff
+bar-capacity-fill-font = 3
+bar-capacity-empty = █
+bar-capacity-empty-font = 3
+bar-capacity-empty-foreground = #44ffffff
+
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
+animation-charging-framerate = 750
+
+
+[module/cpu]
+type = internal/cpu
+interval = 0.5
+format = <label>
+label = CPU: %percentage%%
+
+[module/date]
+type = internal/date
+date =    %%{F#99}%Y-%m-%d%%{F-}  %%{F#fff}%H:%M:%S%%{F-}
+date-alt = %%{F#fff}%A, %d %B %Y  %%{F#fff}%H:%M%%{F#666}:%%{F#fba922}%S%%{F-}
+
+[module/memory]
+type = internal/memory
+format = <label> 
+label = RAM: %gb_used% |Free:  %gb_free%
+
+
+[module/wireless-network]
+type = internal/network
+interface = wlp61s0
+interval = 1.0
+ping-interval = 10
+
+format-connected = <ramp-signal> <label-connected>
+label-connected = %local_ip%    %downspeed%    %upspeed%
+label-disconnected =    not connected
+label-disconnected-foreground = #66
+
+ramp-signal-0 = 
+ramp-signal-1 = 
+ramp-signal-2 = 
+ramp-signal-3 = 
+ramp-signal-4 = 
+
+animation-packetloss-0 = 
+animation-packetloss-0-foreground = #ffa64c
+animation-packetloss-1 = 
+animation-packetloss-1-foreground = ${bar/top.foreground}
+animation-packetloss-framerate = 500
+
+
+[module/volume]
+type = internal/volume
+;speaker-mixer = Speaker
+;headphone-mixer = Headphone
+:headphone-id = 9
+format-volume = <ramp-volume> <label-volume>
+label-muted =   muted
+label-muted-foreground = #66
+
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
+
+
+[module/filesystem]
+type = internal/fs
+interval = 25
+
+mount-0 = /mnt/E-Space
+
+label-mounted =  %mountpoint%: %percentage_used%%
+label-unmounted = %mountpoint% not mounted
+label-unmounted-foreground = #66
+
+
+[module/clock]
+type = internal/date
+interval = 2
+date = %%{F#999}%Y-%m-%d%%{F-}  %%{F#fff}%H:%M%%{F-}
+
+
+[module/temperature]
+type = internal/temperature
+thermal-zone = 5
+warn-temperature = 65
+
+format = <ramp> <label>
+;format-underline = #f50a4d
+format-warn = <ramp> <label-warn>
+;format-warn-underline = ${self.format-underline}
+
+label = %temperature%
+label-warn = HOT! %temperature%
+label-warn-foreground = #f00
+
+ramp-0 = 
+ramp-1 = 
+ramp-2 = 
+ramp-foreground = #66
+
+
+[module/i3]
+type = internal/i3
+pin-workspaces = false
+strip-wsnumbers = false
+index-sort = True
+
+; Use fuzzy (partial) matching on labels when assigning 
+; icons to workspaces
+; Example: code;♚ will apply the icon to all workspaces 
+; containing 'code' in the label
+; Default: false
+fuzzy-match = True
+
+
+ws-icon-0 = 1;  
+ws-icon-1 = 2; 
+ws-icon-2 = 3;🐍 
+ws-icon-3 = 4;📁 
+ws-icon-4 = 5;  
+ws-icon-5 = 6;📻 
+ws-icon-6 = 7;📬  
+ws-icon-7 = 8;📷 
+ws-icon-8 = 9;📚 
+ws-icon-9 = 10;** 
+
+
+label-dimmed-underline = ${root.background}
+
+; Available tags:
+;   <label-state> (default) - gets replaced with <label-(focused|unfocused|visible|urgent)>
+;   <label-mode> (default)
+format = <label-state> <label-mode>
+
+; Available tokens:
+;   %mode%
+; Default: %mode%
+label-mode = %mode%
+label-mode-padding = 0
+label-mode-background = #800000
+
+
+; Available tokens:
+;   %name%
+;   %icon%
+;   %index%
+;   %output%
+; Default: %icon%  %name%
+label-focused =  %name% 
+label-focused-foreground = #ffffff
+label-focused-background = #38c28b
+label-focused-underline = #3039c7
+label-focused-padding = 4
+
+; Available tokens:
+;   %name%
+;   %icon%
+;   %index%
+;   %output%
+; Default: %icon%  %name%
+label-unfocused = %name% 
+label-unfocused-padding = 4
+
+; Available tokens:
+;   %name%
+;   %icon%
+;   %index%
+;   %output%
+; Default: %icon%  %name%
+label-visible = %name% 
+label-visible-underline = #FFFFFF
+label-visible-padding = 4
+
+; Available tokens:
+;   %name%
+;   %icon%
+;   %index%
+;   %output%
+; Default: %icon%  %name%
+label-urgent = %name% 
+label-urgent-foreground = #000000
+label-urgent-background = #0056eb
+label-urgent-padding = 4
+
+; Separator in between workspaces
+label-separator = |
+label-separator-padding = 0
+label-separator-foreground = #FFFFFF
+
+
+format-underline = #1db954
+
+; vim:ft=dosini
