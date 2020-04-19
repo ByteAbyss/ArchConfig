@@ -6,24 +6,27 @@ static const unsigned int snap      = 32;       /* snap pixel */
 static const unsigned int gappx     = 4;        /* gaps between windows */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = {"FiraCode Nerd Font:size=12"};
-static const char dmenufont[]       = "FiraCode Nerd Font:size=12";
+static const char *fonts[]          = {"Hack Nerd Font:size=15"};
+static const char dmenufont[]       = "Hack Nerd Font:size=15";
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
 static const char col_gray4[]       = "#eeeeee";
-static const char col_yell1[]	    = "#fae502";
+static const char yell1[]	    = "#fae502";
 static const char col_cyan[]        = "#005577";
-static const char col_blue[]	    = "#1037d7";
-static const char col_navy[]	    = "#000080";
-static const char col_dgray[]	    = "#8c8c8c";	
-static const char col_teal[]        = "#008080";
+static const char blue[]	    = "#1037d7";
+static const char navy[]	    = "#000080";
+static const char dgray[]	    = "#000000";	
+static const char teal[]            = "#008080";
+static const char brown_g[]         = "#19171c";
+static const char white[]	    = "#FFFFFF";
+static const char black[]           = "#000000";
 
 
 static const char *colors[][3]      = {
-	/*               fg         bg         border   */
-	[SchemeNorm] = { col_teal,  col_gray4, col_gray4 },
-	[SchemeSel]  = { col_yell1, col_navy, col_blue },
+	/*               fg         bg     border   */
+	[SchemeNorm] = { white,  black,    dgray },
+	[SchemeSel]  = { yell1,  navy,     teal },
 };
 
 
@@ -45,11 +48,11 @@ static const Rule rules[] = {
 	{ "jetbrains-pycharm-ce", NULL, NULL,   1 << 2,     False,           0},
 	{ "Steam",   NULL,  NULL,	      	1 << 4,	    False,           0},
 	{ "Thunar",   "thunar",  NULL,	        1 << 3,	    False,           0},	
-	{ "Thunderbird",  "Mail",  NULL,	1 << 6,	    False,           1},
+	{ "Thunderbird",  "Mail",  NULL,	1 << 6,	    False,           0},
 	{ "Gthumb", "gthumb", "gThumb",		1 << 7,	    False,	     1},
 	{ "feh", "feh",	 NULL,	      		1 << 0,	    False,           1},
-	{ "Deadbeef",	 "deadbeef",NULL,	1 << 5,	    True,           -1},
-	{ "Clementine",	 "clementine",NULL,	1 << 5,	    False,           1},
+	{ "Deadbeef",	 "deadbeef",NULL,	1 << 5,	    True,            0},
+	{ "Clementine",	 "clementine",NULL,	1 << 5,	    False,           0},
 	{ "libreoffice", NULL,	  NULL,	        1 << 8,	    False,           0},
 	{ "Ghb",	"ghb",	  "HandBrake",	1 << 8,	    False,           0},
 	{ "Handbrake",  NULL,	  NULL,	        1 << 8,	    False,           0},
@@ -113,8 +116,6 @@ static const char *tunes[]    = { "termite", "-e", "ncmpcpp",  NULL };
 static const char *scr[]      = { "scrot", "-q", "100", "%Y-%m-%d-%H-%M-%S.jpg",  NULL };
 static const char *x_kill[]   = { "xkill", NULL };
 static const char *calc[]     = { "mate-calc", NULL };
-/* TODO -- Vaullt does not work */
-static const char *secret[]   = { "termite", "-e", "Vaullt", NULL };
 static const char *stats[]    = { "termite", "-e", "glances", NULL };
 
 static Key keys[] = {
@@ -141,7 +142,7 @@ static Key keys[] = {
 
 	/* Launchers  */ 
 	{MODKEY|ShiftMask,             XK_a,       spawn,          {.v = dmenucmd } },
-	{MODKEY,		       XK_a,	   spawn,SHCMD("rofi -show run -font 'FiraCode Nerd Font 14'") },
+	{MODKEY,		       XK_a,	   spawn,SHCMD("rofi -show run -font 'Hack Nerd Font 18'") },
         {MODKEY, 		       XK_x, 	   spawn,SHCMD("/usr/bin/xfce4-appfinder")},  	
 	
 	/* Change Wallpaper  */
@@ -150,7 +151,7 @@ static Key keys[] = {
 	{ MODKEY,                	XK_z,	   spawn,          {.v = calc } },
 	{ MODKEY,                	XK_m,	   spawn,          {.v = tunes } },
 	{ MODKEY,                       XK_Print,  spawn,          {.v = scr } },
-	{ MODKEY, 			XK_v,	   spawn,	   {.v = secret} },		
+	{ MODKEY, 			XK_v,	   spawn,	   SHCMD("termite -e /opt/Vault") },		
 	{ MODKEY, 			XK_g,	   spawn,	   {.v = stats } },		
 
 	/* Media Mappings */ 
@@ -196,9 +197,9 @@ static Key keys[] = {
 	{ MODKEY, 	     	        XK_Escape, spawn, 	   {.v = x_kill } },
 	
 	/* Set Layouts Mod + Shift + key  Tile , Float , Monacle */
-	{ MODKEY|ShiftMask,             XK_t,      setlayout,      {.v = &layouts[0]} },
-	{ MODKEY|ShiftMask,             XK_f,      setlayout,      {.v = &layouts[1]} },
-	{ MODKEY|ShiftMask,             XK_m,      setlayout,      {.v = &layouts[2]} },
+	{ MODKEY|ControlMask,           XK_t,      setlayout,      {.v = &layouts[0]} },
+	{ MODKEY|ControlMask,           XK_f,      setlayout,      {.v = &layouts[1]} },
+	{ MODKEY|ControlMask,           XK_m,      setlayout,      {.v = &layouts[2]} },
 
 	/* Cycle through layouts  */
 	{ MODKEY,                       XK_space,  setlayout,      {0} },
@@ -226,10 +227,10 @@ static Key keys[] = {
 	
 	/* Shutdown | Reboot Computer / Exit DWM  */
 	{MODKEY|ControlMask,  		XK_c, 	spawn,		
-	SHCMD("[ \"$(printf \"No\\nYes\" | dmenu -i -nb darkred -sb red -sf white -nf gray -p \"Shutdown computer?\")\" = Yes ] && sudo -A shutdown -h now") },
+	SHCMD("[ \"$(printf \"No\\nYes\" | dmenu -i -nb black -sb darkred -sf white -nf gray -p \"Shutdown computer?\")\" = Yes ] && systemctl poweroff") },
 	
 	{MODKEY|ControlMask,	        XK_BackSpace,	spawn,		
-	SHCMD("[ \"$(printf \"No\\nYes\" | dmenu -i -nb darkred -sb red -sf white -nf gray -p \"Reboot computer?\")\" = Yes ] && sudo -A reboot") },
+	SHCMD("[ \"$(printf \"No\\nYes\" | dmenu -i -nb black -sb darkred -sf white -nf gray -p \"Reboot computer?\")\" = Yes ] && systemctl reboot") },
 	
 	{MODKEY|ShiftMask,              XK_x,      quit,           {0} },
 

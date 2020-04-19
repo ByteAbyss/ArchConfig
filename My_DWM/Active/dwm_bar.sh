@@ -45,7 +45,6 @@ print_temp(){
 }
 
 
-
 weather(){
 #!/bin/sh
 ### This is only if your location isn't automatically detected, otherwise you can leave it blank.

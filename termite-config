@@ -8,7 +8,7 @@ cursor_blink = system
 cursor_shape = block
 dynamic_title = true
 filter_unmatched_urls = true
-font = FiraCode Nerd Font Mono 12
+font = Hack Nerd Font 16
 #font = Hack Bold 10
 geometry = 900x650
 highlight = #2f2f2f
@@ -45,48 +45,52 @@ urgent_on_bell = true
 ############################################################
 
 [colors]
+
 # special
 foreground      = #ffffff
 foreground_bold = #ffffff
 cursor          = #ffffff
-background = rgba(0,0,0,.70)
+#background      = #000000
+background      = rgba(27,27,27,0.65)
+
+
 
 # black
-color0  = #1b1d1e
-color8  = #505354
+color0  = #293b3b
+color8  = #344040
 
 # red
-color1  = #f92672
-color9  = #ff5995
+color1  = #bf5357
+color9  = #bf6367
 
 # green
-color2  = #82b414
-color10 = #b6e354
+color2  = #41a551
+color10 = #51a55f
 
 # yellow
-color3  = #fd971f
-color11 = #feed6c
+color3  = #aea64f
+color11 = #aea75d
 
 # blue
-color4  = #4e82aa
-color12 = #0c73c2
+color4  = #416ea5
+color12 = #5177a5
 
 # magenta
-color5  = #8c54fe
-color13 = #9e6ffe
+color5  = #bf6053
+color13 = #bf6e63
 
 # cyan
-color6  = #465457
-color14 = #899ca1
+color6  = #714da5
+color14 = #7859a5
 
 # white
-color7  = #ccccc6
-color15 = #f8f8f2
+color7  = #876868
+color15 = #876f6f
 
-##################################
-# Test -- Overite Original Theme #
-##################################
 
+
+
+#background = rgba(27, 27, 27, 0.9)
 
 
 

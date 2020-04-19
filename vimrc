@@ -12,7 +12,7 @@ call vundle#begin()
 "call vundle#begin('~/some/path/here')
 
 " let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
+"Plugin 'gmarik/Vundle.vim'
 
 " add all your plugins here (note older versions of Vundle
 " used Bundle instead of Plugin)
@@ -20,7 +20,7 @@ Plugin 'gmarik/Vundle.vim'
 " ...
 
 " All of your Plugins must be added before the following line
-call vundle#end()            " required
+"call vundle#end()            " required
 filetype plugin indent on    " required
 
 
@@ -78,9 +78,8 @@ set fileformat=unix
 
 Plugin 'davidhalter/jedi-vim'
 Plugin 'tmhedberg/SimpylFold'
-Plugin 'nvie/vim-flake8'
+Plugin 'vim-pep8'
 Plugin 'vim-syntastic/syntastic'
-Bundle 'Valloric/YouCompleteMe'
 
 let python_highlight_all=1
 syntax on

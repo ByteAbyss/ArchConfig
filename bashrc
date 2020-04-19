@@ -38,9 +38,16 @@ shopt -s cmdhist # save multi-line commands in history as single line
 shopt -s dotglob
 shopt -s histappend # do not overwrite history
 shopt -s expand_aliases # expand aliases
+
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
+
+# Set so you can just type directory and as cd /directory
+shopt -s autocd
+
+#Vi Mode
+set  -o vi
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
 HISTFILE=/home/joe/System-Logs/Command_and_Control
@@ -55,43 +62,45 @@ export EDITOR="$VISUAL"
 alias i3-edit='vim /home/joe/.config/i3/config'
 alias dwm-build='cd /home/joe/bin/DWM6.2/Active/ && sudo make clean install'
 alias dwm-edit='cd /home/joe/bin/DWM6.2/Active/ && sudo vim /home/joe/bin/DWM6.2/Active/config.h'
-alias rm='rm -f'
-alias ls='ls --color=auto'
-alias grep='grep --color=auto'
-alias fgrep='fgrep --color=auto'
-alias egrep='egrep --color=auto'
 alias vi="vim"
 alias youtube-dl="youtube-dl -ci -o '%(autonumber)s-%(title)s-%(upload_date)s.%(ext)s'" 
 alias df='df -hTl -x tmpfs -x devtmpfs -x squashfs --total'
 alias psmem='ps -eo pid,ppid,cmd,%mem,%cpu --sort=-%mem | head --lines=15'
 alias pscpu='ps -eo pid,ppid,cmd,%mem,%cpu --sort=-%cpu | head --lines=15'
 alias findmnt='findmnt --df'
-alias last20pack="expac --timefmt='%F %T' '%l %n' | sort -n | tail -n 20"
 alias vectrex='cd /home/joe/Vectrex/ParaJVE/ && ./ParaJVE'
+
 # Upgrade - overwirte python site / Remove Orphan Depemdencies / Clean Cache 
 alias up='sudo pacman -Syu --noconfirm --overwrite=/usr/lib/python3.8/site-packages/* && sudo pacman -Scc && sudo pikaur -Syu'
 alias purge='sudo pacman -Rsu'
 alias search='sudo pikaur -Ss'
 alias install='sudo pikaur -S'
-alias nas='ssh joe@10.0.0.250'
-alias recent_history="history | dmenu -l 20 | sed 's/^\s*[0-9]\+\s*//'"
-alias tmux_colors='for i in {0..255}; do printf "\x1b[38;5;${i}mcolor%-5i\x1b[0m" $i ; if ! (( ($i + 1 ) % 8 )); then echo ; fi ; done'
-alias Whovian='cd /home/joe/Dev/Python/Projects/Who_Collection_Management/ && python __main__.py'
-# Upgrade 
+
+# Upgrade - Python Packages
 alias pip_up="sudo pip3.8 list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 sudo pip3.8 install -U"
+
+# -- NAS Box -- #
+alias nas='ssh joe@10.0.0.250'
+
+## -- Old Man Assist -- ##
+alias recent_history="history | dmenu -l 20 | sed 's/^\s*[0-9]\+\s*//'"
+alias pacman_last_25="expac --timefmt='%F %T' '%l %n' | sort -n | tail -n 25"
+
+alias tmux_colors='for i in {0..255}; do printf "\x1b[38;5;${i}mcolor%-5i\x1b[0m" $i ; if ! (( ($i + 1 ) % 8 )); then echo ; fi ; done'
+
 
 # Path Help #
 export PATH=$PATH:/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/home/joe/bin/:/opt/:/home/joe/.local/bin 
 export PYTHONPATH=$PYTHONPATH:/home/joe/bin/
 CDPATH=.:~:/mnt/E-Space/
 
-#Vi Mode
-set  -o vi
-
+#--------------------#
+##### Start Shell ####
+#--------------------#
 cd /home/joe/
-
 # Spec Data #
-alsi
-
+neofetch
+#alsi
+## For Fun ## 
 /home/joe/bin/jokes.py
 

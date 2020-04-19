@@ -329,8 +329,7 @@ bindsym $mod+shift+v exec --no-startup-id /usr/bin/code
 
 # terminal
 bindsym $mod+t exec --no-startup-id termite;focus
-bindsym $mod+shift+w exec --no-startup-id xfce4-terminal --drop-down; focus
-bindsym $mod+control+t exec --no-startup-id urxvt;focus
+bindsym control+$mod+t exec --no-startup-id xfce4-terminal --drop-down; focus
 
 #System monitor
 bindsym control+Shift+Escape exec --no-startup-id xfce4-taskmanager;focus
