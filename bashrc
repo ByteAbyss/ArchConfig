@@ -99,8 +99,8 @@ CDPATH=.:~:/mnt/E-Space/
 #--------------------#
 cd /home/joe/
 # Spec Data #
-neofetch
-#alsi
+#neofetch
+alsi
 ## For Fun ## 
 /home/joe/bin/jokes.py
 
