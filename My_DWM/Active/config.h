@@ -40,16 +40,17 @@ static const Rule rules[] = {
 	 *	WM_NAME(STRING) = title
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
-	{ "Chromium", NULL,	  NULL,	      	1 << 9,     False, 	     1},
+	{ "Chromium", NULL,	  NULL,	      	0,	    False, 	    -1},
 	{ "Mate-calc", "mate-calce", NULL,	0,  	    True,	    -1},	
 	{ "Vivaldi-stable", NULL, NULL, 	1 << 0,     False, 	     0},
 	{ "Termite",   "termite",  "tmux",	1 << 1,     False,  	     0},
 	{ "Termite",   "termite",  NULL,	0,	    False,  	    -1},
 	{ "jetbrains-pycharm-ce", NULL, NULL,   1 << 2,     False,           0},
+	{ "dedadbeaver", NULL, NULL,  		1 << 2,     False,           0},
 	{ "Steam",   NULL,  NULL,	      	1 << 4,	    False,           0},
 	{ "Thunar",   "thunar",  NULL,	        1 << 3,	    False,           0},	
 	{ "Thunderbird",  "Mail",  NULL,	1 << 6,	    False,           0},
-	{ "Gthumb", "gthumb", "gThumb",		1 << 7,	    False,	     1},
+	{ "Ristretto", "ristretto", NULL,	0,	    False,	     0},
 	{ "feh", "feh",	 NULL,	      		1 << 0,	    False,           1},
 	{ "Deadbeef",	 "deadbeef",NULL,	1 << 5,	    True,            0},
 	{ "Clementine",	 "clementine",NULL,	1 << 5,	    False,           0},
@@ -226,12 +227,14 @@ static Key keys[] = {
 	TAGKEYS(                        XK_9,                      8)
 	
 	/* Shutdown | Reboot Computer / Exit DWM  */
-	{MODKEY|ControlMask,  		XK_c, 	spawn,		
-	SHCMD("[ \"$(printf \"No\\nYes\" | dmenu -i -nb black -sb darkred -sf white -nf gray -p \"Shutdown computer?\")\" = Yes ] && systemctl poweroff") },
+	{MODKEY|ControlMask,  		XK_c, 	spawn, 
+		SHCMD("/usr/local/bin/arcolinux-logout")},		
 	
-	{MODKEY|ControlMask,	        XK_BackSpace,	spawn,		
-	SHCMD("[ \"$(printf \"No\\nYes\" | dmenu -i -nb black -sb darkred -sf white -nf gray -p \"Reboot computer?\")\" = Yes ] && systemctl reboot") },
-	
+	/*Lock Screen  */
+	{MODKEY|ControlMask,		XK_s, 	spawn, 
+		SHCMD("/usr/bin/slimlock")}, 
+
+	/*Quit DWM */
 	{MODKEY|ShiftMask,              XK_x,      quit,           {0} },
 
 };

@@ -71,7 +71,7 @@ alias findmnt='findmnt --df'
 alias vectrex='cd /home/joe/Vectrex/ParaJVE/ && ./ParaJVE'
 
 # Upgrade - overwirte python site / Remove Orphan Depemdencies / Clean Cache 
-alias up='sudo pacman -Syu --noconfirm --overwrite=/usr/lib/python3.8/site-packages/* && sudo pacman -Scc && sudo pikaur -Syu'
+alias up='sudo pacman -Syu --noconfirm --overwrite=/usr/lib/python3.8/site-packages/* && sudo pacman -Scc && sudo pikaur -Syu && sudo /opt/vivaldi/update-ffmpeg && sudo /opt/vivaldi/update-widevine'
 alias purge='sudo pacman -Rsu'
 alias search='sudo pikaur -Ss'
 alias install='sudo pikaur -S'
@@ -103,4 +103,6 @@ cd /home/joe/
 alsi
 ## For Fun ## 
 /home/joe/bin/jokes.py
+
+
 

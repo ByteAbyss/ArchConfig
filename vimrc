@@ -3,62 +3,63 @@ filetype plugin indent on
 set nomodeline
 set nocompatible              " required
 filetype off                  " required
+" Plug Start --------------------------->
+call plug#begin('~/.vim/plugged')
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+Plug 'https://github.com/itchyny/lightline.vim'
+Plug 'https://github.com/scrooloose/nerdtree'
+Plug 'davidhalter/jedi-vim'
+Plug 'tmhedberg/SimpylFold'
+Plug 'vim-syntastic/syntastic'
 
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
+call plug#end()
+"-> Plug End ------------------------------|
 
-" let Vundle manage Vundle, required
-"Plugin 'gmarik/Vundle.vim'
-
-" add all your plugins here (note older versions of Vundle
-" used Bundle instead of Plugin)
-
-" ...
-
-" All of your Plugins must be added before the following line
-"call vundle#end()            " required
 filetype plugin indent on    " required
 
-
-" ---- The rest of your config follows here
-
-" ---- General -----
-
-syntax on
+" ---- Config Options --- 
 filetype plugin on
-autocmd Filetype python setlocal expandtab shiftwidth=4 softtabstop=4
+set t_Co=256
 colorscheme elflord
+syntax on
 set nu
 set hlsearch
 set autoindent 
-set ruler
-set smartindent
-set history=150
-set mouse=a
-set t_Co=256
-set smarttab
-set tabstop=4
-set colorcolumn=88
-set pastetoggle=<f5>
-set wildmenu
-set scrolloff=999
+set expandtab
 set smartcase
 set magic
-set wildmenu
 set guioptions=T
 set paste
+set wildmenu
+set ruler
+set smarttab
+set smartindent
+
+set colorcolumn=88
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set textwidth=79
+
+set fileformat=unix
+setlocal spell spelllang=en_us
+
+set history=250
+set mouse=a
+set scrolloff=999
+
+"--- --- Plugin Configuration Settings ----------- 
 filetype plugin indent on
 " automatically change window's cwd to file's dir
 set autochdir
 
+" Nerdtree Config 
+" Open Nerdtree if no file specified when Vim Opened
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
-" -------------------------- Powerline setup:
-set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 14
-set laststatus=2
+let g:NERDTreeDirArrowExpandable = '▸'
+let g:NERDTreeDirArrowCollapsible = '▾'
 
 " Enable folding
 set foldmethod=indent
@@ -68,20 +69,16 @@ set foldlevel=99
 nnoremap <space> za
 
 
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
-set textwidth=79
-set expandtab
-set autoindent
-set fileformat=unix
-
-Plugin 'davidhalter/jedi-vim'
-Plugin 'tmhedberg/SimpylFold'
-Plugin 'vim-pep8'
-Plugin 'vim-syntastic/syntastic'
-
+" vim Jedi Options
 let python_highlight_all=1
-syntax on
 
+" Syntastic (Recomened Options)
 
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 0
+let g:syntastic_check_on_wq = 1
