@@ -11,6 +11,7 @@ Plug 'https://github.com/scrooloose/nerdtree'
 Plug 'davidhalter/jedi-vim'
 Plug 'tmhedberg/SimpylFold'
 Plug 'vim-syntastic/syntastic'
+Plug 'tomasiser/vim-code-dark'
 
 call plug#end()
 "-> Plug End ------------------------------|
@@ -20,7 +21,8 @@ filetype plugin indent on    " required
 " ---- Config Options --- 
 filetype plugin on
 set t_Co=256
-colorscheme elflord
+colorscheme codedark
+let g:airline_theme = 'codedark'
 syntax on
 set nu
 set hlsearch

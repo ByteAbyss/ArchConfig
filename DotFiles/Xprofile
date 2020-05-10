@@ -1,7 +1,9 @@
 export _JAVA_AWT_WM_NONREPARENTING=1
 
 # picom compositor
-picom -b -d :0 --vsync --xrender-sync-fence --config /home/joe/.config/picom.conf &
+#picom -b -d :0 --vsync --xrender-sync-fence --config /home/joe/.config/picom.conf &
+picom --config /home/joe/.config/picom.conf &
+
 
 # xfce power pmanager
 xfce4-power-manager &
@@ -12,3 +14,6 @@ mpd /home/joe/.config/mpd/mpd.conf &
 
 # Set random wall paper
 xwallpaper --daemon --output DP-3 --zoom $(find /mnt/E-Space/Wallpaper/ -maxdepth 3 -type f -iname "*jpg" | shuf -n1) --output DP-0 --zoom $(find /mnt/E-Space/Wallpaper/ -maxdepth 3 -type f -iname "*jpg" | shuf -n1)
+
+
+

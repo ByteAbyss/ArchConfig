@@ -61,7 +61,8 @@ export EDITOR="$VISUAL"
 #####  Personal Alias Functions ###### 
 alias i3-edit='vim /home/joe/.config/i3/config'
 alias dwm-build='cd /home/joe/bin/DWM6.2/Active/ && sudo make clean install'
-alias dwm-edit='cd /home/joe/bin/DWM6.2/Active/ && sudo vim /home/joe/bin/DWM6.2/Active/config.h'
+alias dwm-edit='cd /home/joe/bin/DWM6.2/Active/ && sudo -E vim /home/joe/bin/DWM6.2/Active/config.h'
+alias dwm-cheat='vim /home/joe/bin/DWM6.2/Notes/My_Build_Key_Binds.txt'
 alias vi="vim"
 alias youtube-dl="youtube-dl -ci -o '%(autonumber)s-%(title)s-%(upload_date)s.%(ext)s'" 
 alias df='df -hTl -x tmpfs -x devtmpfs -x squashfs --total'
