@@ -6,12 +6,12 @@ filetype off                  " required
 " Plug Start --------------------------->
 call plug#begin('~/.vim/plugged')
 
-Plug 'https://github.com/itchyny/lightline.vim'
 Plug 'https://github.com/scrooloose/nerdtree'
 Plug 'davidhalter/jedi-vim'
 Plug 'tmhedberg/SimpylFold'
 Plug 'vim-syntastic/syntastic'
 Plug 'tomasiser/vim-code-dark'
+Plug 'itchyny/lightline.vim'
 
 call plug#end()
 "-> Plug End ------------------------------|
@@ -23,6 +23,7 @@ filetype plugin on
 set t_Co=256
 colorscheme codedark
 let g:airline_theme = 'codedark'
+set nrformats-=octal
 syntax on
 set nu
 set hlsearch
@@ -84,3 +85,10 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 1
+
+" lightline
+set laststatus=2
+if !has('gui_running')
+  set t_Co=256
+endif
+

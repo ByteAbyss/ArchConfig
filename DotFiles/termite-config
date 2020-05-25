@@ -17,21 +17,23 @@ modify_other_keys = false
 mouse_autohide = false
 scroll_on_output = false
 scroll_on_keystroke = true
+# off left right
+scrollbar = off
 scrollback_lines = 15000
 size_hints = false
 search_wrap = true
 urgent_on_bell = true
 
 [hints]
+border_width = 15
+roundness = 2.0
+padding = 2
 #font = Monospace 12
 #foreground = #dcdccc
 #background = #3f3f3f
 #active_foreground = #e68080
 #active_background = #3f3f3f
-#padding = 2
 #border = #3f3f3f
-#border_width = 10
-#roundness = 2.0
 
 ############################################################
 #### You can change the color coding to your liking
